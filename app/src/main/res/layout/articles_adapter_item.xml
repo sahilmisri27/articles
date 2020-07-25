@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size16"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/roundCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/size16"
+            android:elevation="@dimen/size0"
+            app:cardCornerRadius="@dimen/size20">
+
+            <ImageView
+                android:id="@+id/userAvatar"
+                android:layout_width="@dimen/size40"
+                android:layout_height="@dimen/size40"
+                android:src="@drawable/ic_launcher_background" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="@dimen/size0"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size4"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/userName"
+                style="@style/userNameStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="User name" />
+
+            <TextView
+                android:id="@+id/userDesignation"
+                style="@style/userDesignationStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="User designation" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/time"
+            style="@style/articleTimeStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1 min" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size8"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/articleImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="@dimen/size20"
+                android:background="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/content"
+                style="@style/articleContentStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/size20"
+                tools:text="Google’s alphabetical dessert naming scheme was an Android tradition for years, dating back to Android 1.5 Cupcake in 2009. But last year, instead of naming Android Q after an obscure pastry tart or candy, Google made the choice to desert desserts entirely for its public releases in favor of numerical names instead, beginning with Android 10 and continued with the upcoming release of Android 11 this fall." />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/articleContentStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/size20"
+                tools:text="This is the title of the article" />
+
+            <TextView
+                android:id="@+id/url"
+                style="@style/articleContentStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/size20"
+                tools:text="This is the url of the article" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/like"
+            style="@style/articleLikeCommentStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            tools:text="4.5K Likes" />
+
+        <TextView
+            android:id="@+id/comment"
+            style="@style/articleLikeCommentStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="end"
+            tools:text="30K Comments" />
+    </LinearLayout>
+
+</LinearLayout>

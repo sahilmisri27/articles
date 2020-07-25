@@ -1,0 +1,15 @@
+package com.sahil.articles.di
+
+import com.sahil.articles.adapter.ArticlesAdapter
+import com.sahil.articles.viewmodel.ArticlesViewModel
+import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.dsl.module
+
+/**
+ * Created by sm28092 on 25/07/2020
+ */
+
+val uiModule = module {
+    factory { ArticlesAdapter(get()) }
+    viewModel { ArticlesViewModel(get()) }
+}
