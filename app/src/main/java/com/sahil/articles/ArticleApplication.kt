@@ -1,6 +1,7 @@
 package com.sahil.articles
 
 import android.app.Application
+import com.sahil.articles.di.repositoryModule
 import com.sahil.articles.di.uiModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -14,7 +15,7 @@ class ArticleApplication  : Application() {
         startKoin {
             androidContext(this@ArticleApplication)
 
-            modules(listOf(uiModule))
+            modules(listOf(uiModule, repositoryModule))
         }
     }
 }
