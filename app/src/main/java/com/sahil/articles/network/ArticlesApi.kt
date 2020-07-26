@@ -1,4 +1,4 @@
-package com.sahil.articles.api
+package com.sahil.articles.network
 
 import com.sahil.articles.model.Article
 import retrofit2.Call
