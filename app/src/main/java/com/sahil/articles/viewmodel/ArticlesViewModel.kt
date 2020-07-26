@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedList
-import com.sahil.articles.network.paging.ArticleDataSource
-import com.sahil.articles.network.paging.ArticleDataSourceFactory
+import com.sahil.articles.network.paging.ArticleNetworkDataSource
+import com.sahil.articles.network.paging.ArticleNetworkDataSourceFactory
 import com.sahil.articles.model.Article
 import com.sahil.articles.repository.ArticlesRepository
 
@@ -22,11 +22,11 @@ class ArticlesViewModel(context: Context, articlesRepository: ArticlesRepository
 
     init {
         val itemDataSourceFactory =
-            ArticleDataSourceFactory()
+            ArticleNetworkDataSourceFactory()
         liveDataSource = itemDataSourceFactory.getItemLiveDataSource()
         val config: PagedList.Config = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
-            .setPageSize(ArticleDataSource.PAGE_SIZE)
+            .setPageSize(ArticleNetworkDataSource.PAGE_SIZE)
             .build()
         itemPagedList = LivePagedListBuilder(itemDataSourceFactory, config).build()
     }

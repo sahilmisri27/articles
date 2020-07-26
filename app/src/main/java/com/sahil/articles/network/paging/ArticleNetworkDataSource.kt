@@ -11,7 +11,7 @@ import retrofit2.Response
 /**
  * Created by sm28092 on 26/07/2020
  */
-class ArticleDataSource : PageKeyedDataSource<Int, Article>() {
+class ArticleNetworkDataSource : PageKeyedDataSource<Int, Article>() {
 
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, Article>) {
         val service: ArticlesApi = RetrofitService.createService(ArticlesApi::class.java)

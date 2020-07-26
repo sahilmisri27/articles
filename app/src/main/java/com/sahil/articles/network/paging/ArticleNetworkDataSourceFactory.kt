@@ -9,12 +9,12 @@ import com.sahil.articles.model.Article
 /**
  * Created by sm28092 on 26/07/2020
  */
-class ArticleDataSourceFactory : DataSource.Factory<Int, Article>() {
+class ArticleNetworkDataSourceFactory : DataSource.Factory<Int, Article>() {
     private val itemLiveDataSource: MutableLiveData<PageKeyedDataSource<Int, Article>> =
         MutableLiveData()
 
     override fun create(): DataSource<Int, Article> {
-        val articleDataSource = ArticleDataSource()
+        val articleDataSource = ArticleNetworkDataSource()
         itemLiveDataSource.postValue(articleDataSource)
         return articleDataSource
     }
