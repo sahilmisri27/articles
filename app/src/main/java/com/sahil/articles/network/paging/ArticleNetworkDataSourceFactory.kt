@@ -2,24 +2,23 @@ package com.sahil.articles.network.paging
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import androidx.paging.PageKeyedDataSource
 import com.sahil.articles.model.Article
+import rx.subjects.ReplaySubject
 
 
 /**
  * Created by sm28092 on 26/07/2020
  */
 class ArticleNetworkDataSourceFactory : DataSource.Factory<Int, Article>() {
-    private val itemLiveDataSource: MutableLiveData<PageKeyedDataSource<Int, Article>> =
-        MutableLiveData()
+    private var articlePageKeyedDataSource: ArticleNetworkDataSource = ArticleNetworkDataSource()
+
 
     override fun create(): DataSource<Int, Article> {
-        val articleDataSource = ArticleNetworkDataSource()
-        itemLiveDataSource.postValue(articleDataSource)
-        return articleDataSource
+        return articlePageKeyedDataSource
     }
 
-    fun getItemLiveDataSource(): MutableLiveData<PageKeyedDataSource<Int, Article>> {
-        return itemLiveDataSource
+
+    fun getArticle(): ReplaySubject<Article> {
+        return articlePageKeyedDataSource.getArticle()
     }
 }

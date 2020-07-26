@@ -9,13 +9,14 @@ import org.koin.core.context.startKoin
 /**
  * Created by sm28092 on 25/07/2020
  */
-class ArticleApplication  : Application() {
+class ArticleApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        startKoin {
-            androidContext(this@ArticleApplication)
-
-            modules(listOf(uiModule, repositoryModule))
-        }
+//        TODO("FIX ME")
+//        startKoin {
+//            androidContext(this@ArticleApplication)
+//
+//            modules(listOf(uiModule, repositoryModule))
+//        }
     }
 }

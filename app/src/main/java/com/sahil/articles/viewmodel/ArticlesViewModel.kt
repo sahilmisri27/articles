@@ -1,13 +1,9 @@
 package com.sahil.articles.viewmodel
 
-import android.content.Context
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedList
-import com.sahil.articles.network.paging.ArticleNetworkDataSource
-import com.sahil.articles.network.paging.ArticleNetworkDataSourceFactory
 import com.sahil.articles.model.Article
 import com.sahil.articles.repository.ArticlesRepository
 
@@ -15,19 +11,12 @@ import com.sahil.articles.repository.ArticlesRepository
 /**
  * Created by sm28092 on 25/07/2020
  */
-class ArticlesViewModel(context: Context, articlesRepository: ArticlesRepository) : ViewModel() {
+class ArticlesViewModel(application: Application) : AndroidViewModel(application) {
 
-    var itemPagedList: LiveData<PagedList<Article>>
-    private var liveDataSource: LiveData<PageKeyedDataSource<Int, Article>>
+    private var repository:ArticlesRepository = ArticlesRepository(application.applicationContext)
 
-    init {
-        val itemDataSourceFactory =
-            ArticleNetworkDataSourceFactory()
-        liveDataSource = itemDataSourceFactory.getItemLiveDataSource()
-        val config: PagedList.Config = PagedList.Config.Builder()
-            .setEnablePlaceholders(false)
-            .setPageSize(ArticleNetworkDataSource.PAGE_SIZE)
-            .build()
-        itemPagedList = LivePagedListBuilder(itemDataSourceFactory, config).build()
+    fun getArticles(): LiveData<PagedList<Article>> {
+        return repository.getArticles()
     }
+
 }

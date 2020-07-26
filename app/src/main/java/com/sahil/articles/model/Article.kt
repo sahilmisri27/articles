@@ -1,19 +1,25 @@
 package com.sahil.articles.model
 
-import androidx.recyclerview.widget.AsyncDifferConfig
-import androidx.recyclerview.widget.DiffUtil
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 
 /**
- * Created by sm28092 on 25/07/2020
+ * Created by sm28092 on 26/07/2020
  */
-data class Article(
-    val id: String,
-    val createdAt: String,
-    val content: String,
-    val comments: Long,
-    val likes: Long,
-    val media: List<Media>,
-    val user: List<User>)
+@Entity(tableName = "article")
+class Article {
+    @PrimaryKey()
+    var id: String = ""
+    var createdAt: String = ""
+    var content: String = ""
+    var comments: Long = 0
+    var likes: Long = 0
 
+    @TypeConverters(DataTypeConverterForMedia::class)
+    var media: List<Media>? = null
+
+    @TypeConverters(DataTypeConverterForUser::class)
+    var user: List<User>? = null
+
+}
