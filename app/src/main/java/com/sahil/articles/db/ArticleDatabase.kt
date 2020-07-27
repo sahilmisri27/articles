@@ -8,7 +8,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.sahil.articles.db.paging.ArticleDataBaseDataSourceFactory
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 

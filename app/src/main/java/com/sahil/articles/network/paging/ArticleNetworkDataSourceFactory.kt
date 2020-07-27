@@ -1,8 +1,7 @@
 package com.sahil.articles.network.paging
 
-import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 import rx.subjects.ReplaySubject
 
 

@@ -11,7 +11,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sahil.articles.R
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 import com.sahil.articles.util.NumberFormatUtil
 import com.squareup.picasso.Callback
 import com.squareup.picasso.NetworkPolicy

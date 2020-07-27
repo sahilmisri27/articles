@@ -1,8 +1,10 @@
-package com.sahil.articles.model
+package com.sahil.articles.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.sahil.articles.db.typeconverters.DataTypeConverterForMedia
+import com.sahil.articles.db.typeconverters.DataTypeConverterForUser
 
 /**
  * Created by sm28092 on 26/07/2020

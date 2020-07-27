@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import androidx.paging.PagedList.BoundaryCallback
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 import com.sahil.articles.network.paging.ArticleNetworkDataSource
 import com.sahil.articles.network.paging.ArticleNetworkDataSourceFactory
 import java.util.concurrent.Executor

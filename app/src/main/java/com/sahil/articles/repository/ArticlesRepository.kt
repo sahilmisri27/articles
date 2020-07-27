@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.paging.PagedList.BoundaryCallback
 import com.sahil.articles.db.ArticleDatabase
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 import com.sahil.articles.network.ArticleService
 import com.sahil.articles.network.paging.ArticleNetworkDataSourceFactory
 import rx.schedulers.Schedulers

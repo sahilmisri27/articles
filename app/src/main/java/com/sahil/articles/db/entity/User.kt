@@ -1,4 +1,4 @@
-package com.sahil.articles.model
+package com.sahil.articles.db.entity
 
 import com.google.gson.annotations.SerializedName
 

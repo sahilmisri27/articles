@@ -1,8 +1,9 @@
-package com.sahil.articles.model
+package com.sahil.articles.db.typeconverters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.sahil.articles.db.entity.Media
 
 /**
  * Created by sm28092 on 26/07/2020

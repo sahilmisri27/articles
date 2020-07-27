@@ -3,7 +3,7 @@ package com.sahil.articles.db.paging
 import android.util.Log
 import androidx.paging.PageKeyedDataSource
 import com.sahil.articles.db.ArticleDao
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 
 /**
  * Created by sm28092 on 26/07/2020

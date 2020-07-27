@@ -2,7 +2,7 @@ package com.sahil.articles.db.paging
 
 import androidx.paging.DataSource
 import com.sahil.articles.db.ArticleDao
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 
 /**
  * Created by sm28092 on 26/07/2020

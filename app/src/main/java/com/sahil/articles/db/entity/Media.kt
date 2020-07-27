@@ -1,4 +1,4 @@
-package com.sahil.articles.model
+package com.sahil.articles.db.entity
 
 /**
  * Created by sm28092 on 25/07/2020

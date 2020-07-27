@@ -1,6 +1,6 @@
 package com.sahil.articles.network
 
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

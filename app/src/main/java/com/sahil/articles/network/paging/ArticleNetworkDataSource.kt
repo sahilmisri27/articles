@@ -2,7 +2,7 @@ package com.sahil.articles.network.paging
 
 import android.util.Log
 import androidx.paging.PageKeyedDataSource
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 import com.sahil.articles.network.ArticlesApi
 import com.sahil.articles.service.RetrofitService
 import retrofit2.Call

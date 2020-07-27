@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
-import com.sahil.articles.model.Article
+import com.sahil.articles.db.entity.Article
 import com.sahil.articles.repository.ArticlesRepository
 
 
