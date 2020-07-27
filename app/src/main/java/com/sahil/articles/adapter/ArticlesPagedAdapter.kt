@@ -12,6 +12,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sahil.articles.R
 import com.sahil.articles.model.Article
+import com.sahil.articles.util.NumberFormatUtil
+import com.squareup.picasso.Callback
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
+
 
 /**
  * Created by sm28092 on 25/07/2020
@@ -25,6 +30,7 @@ class ArticlesPagedAdapter constructor(context: Context?) :
         return ViewHolder(view)
     }
 
+    @SuppressLint("ResourceType")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article = getItem(position)
         if (article != null) {
@@ -33,19 +39,25 @@ class ArticlesPagedAdapter constructor(context: Context?) :
                 StringBuilder().append(user?.name).append(" ").append(user?.lastName).toString()
             holder.userDesignation.text = user?.designation
             holder.content.text = article.content
+            user?.avatar?.let { loadImagesWithPicaso(it, holder.userAvatar) }
             val mediaList = article.media
             if (mediaList != null && mediaList?.isNotEmpty()) {
                 val media = article.media?.get(0)
                 holder.title.visibility = View.VISIBLE
                 holder.url.visibility = View.VISIBLE
+                holder.articleImage.visibility = View.VISIBLE
                 holder.title.text = media?.title
                 holder.url.text = media?.url
+                media?.image?.let { loadImagesWithPicaso(it, holder.articleImage) }
             } else {
                 holder.title.visibility = View.GONE
                 holder.url.visibility = View.GONE
+                holder.articleImage.visibility = View.GONE
             }
-            holder.like.text = article.likes.toString()
-            holder.comment.text = article.comments.toString()
+            holder.like.text = NumberFormatUtil.format(article.likes.toDouble(), R.string.likes, holder
+                .like.context)
+            holder.comment.text = NumberFormatUtil.format(article.comments.toDouble(), R.string.comments,
+                holder.comment.context)
         }
 
     }
@@ -61,6 +73,19 @@ class ArticlesPagedAdapter constructor(context: Context?) :
         val url: TextView = view.findViewById(R.id.url)
         val like: TextView = view.findViewById(R.id.like)
         val comment: TextView = view.findViewById(R.id.comment)
+    }
+
+    private fun loadImagesWithPicaso(url: String, imageView: ImageView) {
+
+        Picasso.get()
+            .load(url)
+            .networkPolicy(NetworkPolicy.OFFLINE)
+            .into(imageView, object : Callback {
+                override fun onSuccess() {}
+                override fun onError(e: Exception) {
+                    Picasso.get().load(url).into(imageView)
+                }
+            })
     }
 
     companion object {
