@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
 import com.sahil.articles.R
@@ -27,7 +28,7 @@ class ArticlesFragment : BaseFragment() {
         articlesAdapter = ArticlesPagedAdapter(context)
         viewPager = view.findViewById(R.id.articles_view_pager)
         viewPager.adapter = articlesAdapter
-        articleViewModel = ViewModelProviders.of(requireActivity()).get(ArticlesViewModel::class.java)
+        articleViewModel = ViewModelProvider(this).get(ArticlesViewModel::class.java)
         registerObserver()
         return view
     }
