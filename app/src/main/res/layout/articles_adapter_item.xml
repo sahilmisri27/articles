@@ -58,49 +58,45 @@
             tools:text="1 min" />
     </LinearLayout>
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/size8"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/articleImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="@dimen/size20"
+            android:src="@color/ten_percent_black" />
+
+        <TextView
+            android:id="@+id/content"
+            style="@style/articleContentStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="@dimen/size20"
+            tools:text="Google’s alphabetical dessert naming scheme was an Android tradition for years, dating back to Android 1.5 Cupcake in 2009. But last year, instead of naming Android Q after an obscure pastry tart or candy, Google made the choice to desert desserts entirely for its public releases in favor of numerical names instead, beginning with Android 10 and continued with the upcoming release of Android 11 this fall." />
 
-            <ImageView
-                android:id="@+id/articleImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginBottom="@dimen/size20"
-                android:src="@color/ten_percent_black" />
+        <TextView
+            android:id="@+id/title"
+            style="@style/articleTitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/size20"
+            tools:text="This is the title of the article" />
 
-            <TextView
-                android:id="@+id/content"
-                style="@style/articleContentStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/size20"
-                tools:text="Google’s alphabetical dessert naming scheme was an Android tradition for years, dating back to Android 1.5 Cupcake in 2009. But last year, instead of naming Android Q after an obscure pastry tart or candy, Google made the choice to desert desserts entirely for its public releases in favor of numerical names instead, beginning with Android 10 and continued with the upcoming release of Android 11 this fall." />
-
-            <TextView
-                android:id="@+id/title"
-                style="@style/articleContentStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/size20"
-                tools:text="This is the title of the article" />
-
-            <TextView
-                android:id="@+id/url"
-                style="@style/articleContentStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/size20"
-                tools:text="This is the url of the article" />
-        </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/url"
+            style="@style/articleContentStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/size20"
+            android:autoLink="web"
+            tools:text="This is the url of the article" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -8,28 +8,33 @@
     </style>
 
     <style name="articleContentStyle">
-        <item name="android:textSize">@dimen/size14</item>
+        <item name="android:textSize">@dimen/textSize14</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="articleTitleStyle">
+        <item name="android:textSize">@dimen/textSize14</item>
+        <item name="android:textColor">@color/eighty_percent_black</item>
+    </style>
+
     <style name="userNameStyle">
-        <item name="android:textSize">@dimen/size14</item>
+        <item name="android:textSize">@dimen/textSize14</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="userDesignationStyle">
-        <item name="android:textSize">@dimen/size14</item>
+        <item name="android:textSize">@dimen/textSize14</item>
         <item name="android:textColor">@color/fifty_percent_black</item>
     </style>
 
     <style name="articleTimeStyle">
-        <item name="android:textSize">@dimen/size14</item>
+        <item name="android:textSize">@dimen/textSize14</item>
         <item name="android:textColor">@color/fifty_percent_black</item>
     </style>
 
     <style name="articleLikeCommentStyle">
-        <item name="android:textSize">@dimen/size14</item>
+        <item name="android:textSize">@dimen/textSize14</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
     </style>
