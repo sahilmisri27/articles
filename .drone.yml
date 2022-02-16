@@ -9,7 +9,5 @@ steps:
      - git clone https://github.com/sahilmisri27/articles --branch master
      
 trigger:
-  branch:
-    - drone
   event:
-    - push
+    - pull_request
