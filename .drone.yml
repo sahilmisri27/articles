@@ -1,0 +1,21 @@
+kind: pipeline
+type: docker
+name: PR
+node:
+  type: build
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: pr_build_and_test
+    image: redis@sha256:54057dd7e125ca41afe526a877e8bd35ec2cdd33b9217e022ed37bdcf7d09673
+    commands:
+      - ./gradlew clean
+    environment:
+      GRADLE_USER_HOME: /drone/src/.gradleHome
+
+trigger:
+  event:
+    - pull_request
