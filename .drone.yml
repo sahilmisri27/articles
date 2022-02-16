@@ -1,15 +1,17 @@
-name: Build Pull Request
-on: [pull_request]
+kind: pipeline
+type: docker
+name: PR
+node:
+  type: build
 
-jobs:
-  compile_job:
-    name: Compile
-    runs-on: ubuntu-latest
-    continue-on-error: false
-    steps:
-      steps:
+platform:
+  os: linux
+  arch: amd64
+  
+steps:
 - name : Articles clone  
   image: docker:git
+  pull: always
   commands:    
      - git clone https://github.com/sahilmisri27/articles --branch master
         with:
@@ -23,3 +25,10 @@ jobs:
         run: chmod a+x gradlew
       - name: Run Compile Source
         run: ./gradlew compileDebugSources 
+        
+  trigger:
+  branch:
+    - master
+  event:
+    - push
+...
