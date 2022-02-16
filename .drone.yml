@@ -1,21 +1,25 @@
-kind: pipeline
-type: docker
-name: PR
-node:
-  type: build
+name: Build Pull Request
+on: [pull_request]
 
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-  - name: pr_build_and_test
-    image: redis@sha256:54057dd7e125ca41afe526a877e8bd35ec2cdd33b9217e022ed37bdcf7d09673
-    commands:
-      - ./gradlew clean
-    environment:
-      GRADLE_USER_HOME: /drone/src/.gradleHome
-
-trigger:
-  event:
-    - pull_request
+jobs:
+  compile_job:
+    name: Compile
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    steps:
+      steps:
+- name : Articles clone  
+  image: docker:git
+  commands:    
+     - git clone https://github.com/sahilmisri27/articles --branch master
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: Change Execute Permission
+        run: chmod a+x gradlew
+      - name: Run Compile Source
+        run: ./gradlew compileDebugSources 
