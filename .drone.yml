@@ -1,34 +1,9 @@
 kind: pipeline
 type: docker
-name: PR
-node:
-  type: build
+name: Sahil
 
-platform:
-  os: linux
-  arch: amd64
-  
 steps:
-- name : Articles clone  
+- name : Repo clone  
   image: docker:git
-  pull: always
   commands:    
      - git clone https://github.com/sahilmisri27/articles --branch master
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-      - name: Change Execute Permission
-        run: chmod a+x gradlew
-      - name: Run Compile Source
-        run: ./gradlew compileDebugSources 
-        
-  trigger:
-  branch:
-    - master
-  event:
-    - push
-...
