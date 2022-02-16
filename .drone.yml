@@ -7,9 +7,6 @@ steps:
   image: docker:git
   commands:    
      - git clone https://github.com/sahilmisri27/articles --branch master
-     
-trigger:
-  branch:
-    - master
-  event:
-    - push
+  when:
+    event:
+        - pull_request
