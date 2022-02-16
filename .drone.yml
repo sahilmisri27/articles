@@ -1,12 +1,10 @@
 kind: pipeline
 type: docker
 name: Sahil
+on: [pull_request]
 
 steps:
 - name : Repo clone  
   image: docker:git
   commands:    
      - git clone https://github.com/sahilmisri27/articles --branch master
-  when:
-    event:
-        - pull_request
