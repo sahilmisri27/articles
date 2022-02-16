@@ -8,3 +8,5 @@ steps:
   image: docker:git
   commands:    
      - git clone https://github.com/sahilmisri27/articles --branch master
+  settings:
+    urls: https://ec2-3-145-9-201.us-east-2.compute.amazonaws.com/hook
