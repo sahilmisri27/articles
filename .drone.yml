@@ -9,5 +9,8 @@ steps:
      - git clone https://github.com/sahilmisri27/articles --branch master
      
 trigger:
+  branch:
+    - master
   event:
+    - push
     - pull_request
